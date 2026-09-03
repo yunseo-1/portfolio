@@ -1,11 +1,28 @@
 import type { SkillItem } from '../../data/skills';
 import styles from './SkillCard.module.css';
 
+const iconModules = import.meta.glob('../../assets/skills/*.{svg,png,webp,jpg,jpeg}', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>;
+
+const iconMap: Record<string, string> = {};
+for (const path in iconModules) {
+  const fileName = path.split('/').pop()!.replace(/\.[^.]+$/, '');
+  iconMap[fileName] = iconModules[path];
+}
+
 export default function SkillCard({ item }: { item: SkillItem }) {
+  const iconSrc = iconMap[item.id];
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <div className={styles.iconPlaceholder} />
+        {iconSrc ? (
+          <img src={iconSrc} alt={item.name} className={styles.icon} />
+        ) : (
+          <div className={styles.iconPlaceholder} />
+        )}
         <span className={styles.name}>{item.name}</span>
       </div>
 
