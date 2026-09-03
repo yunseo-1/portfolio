@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { activitiesData } from '../../data/activities';
+import { getActivities } from '../../api/activities';
+import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import styles from './ActivityTimeline.module.css';
 
 export default function ActivityTimeline() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const { data } = useSupabaseQuery('activities', getActivities);
+  const items = data ?? [];
 
   return (
     <section className={styles.section}>
@@ -13,7 +16,7 @@ export default function ActivityTimeline() {
       <div className={styles.timeline}>
         <div className={styles.line} />
 
-        {activitiesData.map(item => {
+        {items.map(item => {
           const isActive = item.id === activeId;
           return (
             <div

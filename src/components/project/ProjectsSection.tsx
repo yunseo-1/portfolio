@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { projectsData, type ProjectItem } from '../../data/projects';
+import type { ProjectItem } from '../../data/projects';
+import { getProjects } from '../../api/projects';
+import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
 import styles from './ProjectsSection.module.css';
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const { data } = useSupabaseQuery('projects', getProjects);
+  const projects = data ?? [];
 
   return (
     <section className={styles.section}>
@@ -13,7 +17,7 @@ export default function ProjectsSection() {
       <h2 className={styles.heading}>프로젝트</h2>
 
       <div className={styles.list}>
-        {projectsData.map(project => (
+        {projects.map(project => (
           <ProjectCard key={project.id} project={project} onClick={setSelectedProject} />
         ))}
       </div>

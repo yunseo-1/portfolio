@@ -1,14 +1,18 @@
-import { blogsData } from '../../data/blogs';
+import { getPosts } from '../../api/posts';
+import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import styles from './BlogSection.module.css';
 
 export default function BlogSection() {
+  const { data } = useSupabaseQuery('posts', getPosts);
+  const posts = data ?? [];
+
   return (
     <section className={styles.section}>
       <span className={styles.label}>BLOGS</span>
       <h2 className={styles.heading}>공부하고 기록한 글들</h2>
 
       <div className={styles.list}>
-        {blogsData.map(blog => (
+        {posts.map(blog => (
           <a
             key={blog.id}
             href={blog.url}
