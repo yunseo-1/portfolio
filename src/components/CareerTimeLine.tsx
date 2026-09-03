@@ -1,4 +1,4 @@
-import styles from './CareerTimeline.module.css';
+import styles from './CareerTimeLine.module.css';
 
 interface CareerItem {
   id: string;

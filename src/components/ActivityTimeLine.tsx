@@ -1,7 +1,7 @@
 // src/components/ActivityTimeline.tsx
 import { useState } from 'react';
 import { activitiesData } from '../data/activities';
-import styles from './ActivityTimeline.module.css';
+import styles from './ActivityTimeLine.module.css';
 
 export default function ActivityTimeline() {
   const [activeId, setActiveId] = useState<string | null>(null);
