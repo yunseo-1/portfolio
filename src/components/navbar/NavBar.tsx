@@ -1,4 +1,4 @@
-import styles from './NavBar.module.css';  
+import styles from './NavBar.module.css';
 
 const navItems = [
   { id: 'home', label: 'About' },

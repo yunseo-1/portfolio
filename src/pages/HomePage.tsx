@@ -1,13 +1,13 @@
-import CareerTimeline from '../components/CareerTimeLine';
-import Hero from '../components/Hero';
-import NavBar from '../components/NavBar';
-import SkillsSection from '../components/SkillsSection';
-import WordCloud from '../components/WordCloud';
-import ActivityTimeline from '../components/ActivityTimeLine';
-import ProjectsSection from '../components/ProjectsSection';
-import BlogSection from '../components/BlogSection';
-import ClosingSection from '../components/ClosingSection';
-import Footer from '../components/Footer';
+import NavBar from '../components/navbar';
+import Hero from '../components/hero';
+import CareerTimeline from '../components/career';
+import WordCloud from '../components/wordcloud';
+import SkillsSection from '../components/skill';
+import ActivityTimeline from '../components/activity';
+import ProjectsSection from '../components/project';
+import BlogSection from '../components/blog';
+import ClosingSection from '../components/closing';
+import Footer from '../components/footer';
 
 export default function HomePage() {
   return (

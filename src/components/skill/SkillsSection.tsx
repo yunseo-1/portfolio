@@ -1,5 +1,4 @@
-// src/components/SkillsSection.tsx
-import { skillsData } from '../data/skills';
+import { skillsData } from '../../data/skills';
 import SkillCard from './SkillCard';
 import styles from './SkillsSection.module.css';
 

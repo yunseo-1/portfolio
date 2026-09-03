@@ -1,4 +1,4 @@
-import type { SkillItem } from '../data/skills';
+import type { SkillItem } from '../../data/skills';
 import styles from './SkillCard.module.css';
 
 export default function SkillCard({ item }: { item: SkillItem }) {

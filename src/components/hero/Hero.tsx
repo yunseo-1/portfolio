@@ -1,4 +1,4 @@
-import heroImg from '../assets/hero.png';
+import heroImg from '../../assets/hero.png';
 import styles from './Hero.module.css';
 
 export default function Hero() {

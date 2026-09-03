@@ -1,4 +1,4 @@
-import type { ProjectItem } from '../data/projects';
+import type { ProjectItem } from '../../data/projects';
 import styles from './ProjectCard.module.css';
 
 interface Props {

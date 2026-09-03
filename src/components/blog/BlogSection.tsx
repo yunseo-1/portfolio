@@ -1,5 +1,4 @@
-// src/components/BlogSection.tsx
-import { blogsData } from '../data/blogs';
+import { blogsData } from '../../data/blogs';
 import styles from './BlogSection.module.css';
 
 export default function BlogSection() {
