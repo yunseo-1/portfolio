@@ -1,0 +1,106 @@
+.section {
+  background: #000000;
+  padding: 60px 48px;
+  text-align: left;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #71717A;
+  letter-spacing: 0.05em;
+}
+
+.heading {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FF3EA5;
+  margin: 8px 0 40px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.line {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #27272A;
+}
+
+.item {
+  position: relative;
+  padding-bottom: 64px;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.dot {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3F3F46;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FF3EA5;
+  background: rgba(255, 62, 165, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.date {
+  font-size: 12px;
+  color: #71717A;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.description {
+  font-size: 13px;
+  color: #A1A1AA;
+  margin: 0;
+}
+
+/* 현재 뷰포트 중앙에 있는 항목 */
+.active {
+  filter: none;
+  opacity: 1;
+}
+
+.active .dot {
+  background: #FF3EA5;
+  box-shadow: 0 0 0 4px rgba(255, 62, 165, 0.2);
+}
+
+/* 나머지 항목은 흑백 처리 */
+.inactive {
+  filter: grayscale(1);
+  opacity: 0.4;
+}

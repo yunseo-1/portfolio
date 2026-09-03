@@ -1,0 +1,39 @@
+.section {
+  background: #000000;
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.heading {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #A1A1AA;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.emailBtn {
+  margin-top: 12px;
+  background: #FF3EA5;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.emailBtn:hover {
+  opacity: 0.85;
+}

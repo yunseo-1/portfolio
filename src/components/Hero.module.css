@@ -1,0 +1,63 @@
+/* HeroSection.module.css */
+.hero {
+  background: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 48px;
+  gap: 40px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 560px;
+}
+
+.headline {
+  font-size: 40px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.role {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FF3EA5;
+}
+
+.description {
+  font-size: 14px;
+  color: #D4D4D8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contacts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-size: 13px;
+  color: #18181B;
+  background: #FFFFFF;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.right {
+  flex-shrink: 0;
+}
+
+.profileImg {
+  width: 220px;
+  height: 220px;
+  border-radius: 16px;
+  object-fit: cover;
+}
