@@ -18,12 +18,12 @@ export default function Hero() {
           데이터로 검증하는 일을 좋아합니다. 작은 디테일이 큰 신뢰를 만든다고 믿어요.
         </p>
 
-        <div className={styles.contacts}>
-          <a href="mailto:example@gmail.com" className={styles.chip}>· example@gmail.com</a>
-          <a href="https://github.com/yunseo-1" className={styles.chip}>· GitHub</a>
-          <a href="https://kimyunseo112.tistory.com/" className={styles.chip}>· velog</a>
-          <a href="https://www.linkedin.com/in/%EC%9C%A4%EC%84%9C-%EA%B9%80-941b5631b/" className={styles.chip}>· LinkedIn</a>
-        </div>
+        <ul className={styles.contacts}>
+          <li><a href="mailto:example@gmail.com" className={styles.chip}>email</a></li>
+          <li><a href="https://github.com/yunseo-1" className={styles.chip}>GitHub</a></li>
+          <li><a href="https://kimyunseo112.tistory.com/" className={styles.chip}>velog</a></li>
+          <li><a href="https://www.linkedin.com/in/%EC%9C%A4%EC%84%9C-%EA%B9%80-941b5631b/" className={styles.chip}>LinkedIn</a></li>
+        </ul>
       </div>
 
       <div className={styles.right}>
