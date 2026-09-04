@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { ProjectItem } from '../data/projects';
+import type { ProjectItem } from '../types/projects';
 
 interface ProjectRow {
   slug: string;

@@ -1,4 +1,4 @@
-import { buildBotSystemPrompt } from '../data/botContext';
+import { buildBotSystemPrompt } from './botContext';
 import { getCareer } from './career';
 import { getProjects } from './projects';
 import { getActivities } from './activities';

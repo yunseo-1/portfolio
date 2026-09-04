@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { KeywordQuestion } from '../data/keywordQuestions';
+import type { KeywordQuestion } from '../types/keywordQuestions';
 
 interface KeywordQuestionRow {
   keyword: string;

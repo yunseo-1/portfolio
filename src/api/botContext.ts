@@ -1,7 +1,7 @@
-import type { CareerItem } from './career';
-import type { ProjectItem } from './projects';
-import type { ActivityItem } from './activities';
-import type { SkillCategory } from './skills';
+import type { CareerItem } from '../types/career';
+import type { ProjectItem } from '../types/projects';
+import type { ActivityItem } from '../types/activities';
+import type { SkillCategory } from '../types/skills';
 
 export interface BotContextData {
   career: CareerItem[];

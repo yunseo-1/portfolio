@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import { getKeywordQuestions } from '../../api/keywordQuestions';
 import { sendChatMessage, type ChatTurn } from '../../api/chat';
-import type { KeywordQuestion } from '../../data/keywordQuestions';
+import type { KeywordQuestion } from '../../types/keywordQuestions';
 import styles from './ChatBot.module.css';
 
 interface ChatBotProps {

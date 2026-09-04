@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getPosts } from '../../api/posts';
 import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
-import type { BlogItem } from '../../data/blogs';
+import type { BlogItem } from '../../types/blogs';
 import BlogModal from './BlogModal';
 import styles from './BlogSection.module.css';
 

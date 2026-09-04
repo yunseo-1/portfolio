@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { SkillCategory, SkillItem } from '../data/skills';
+import type { SkillCategory, SkillItem } from '../types/skills';
 
 interface SkillRow {
   id: string;

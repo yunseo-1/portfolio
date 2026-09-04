@@ -1,4 +1,4 @@
-import type { SkillItem } from '../../data/skills';
+import type { SkillItem } from '../../types/skills';
 import styles from './SkillCard.module.css';
 
 const iconModules = import.meta.glob('../../assets/skills/*.{svg,png,webp,jpg,jpeg}', {

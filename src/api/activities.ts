@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { ActivityItem } from '../data/activities';
+import type { ActivityItem } from '../types/activities';
 
 interface ActivityRow {
   id: string;

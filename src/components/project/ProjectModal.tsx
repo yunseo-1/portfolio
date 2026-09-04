@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ProjectItem } from '../../data/projects';
+import type { ProjectItem } from '../../types/projects';
 import styles from './ProjectModal.module.css';
 
 interface Props {

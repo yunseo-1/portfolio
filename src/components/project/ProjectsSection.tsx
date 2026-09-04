@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ProjectItem } from '../../data/projects';
+import type { ProjectItem } from '../../types/projects';
 import { getProjects } from '../../api/projects';
 import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import ProjectCard from './ProjectCard';

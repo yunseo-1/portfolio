@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { CareerItem } from '../data/career';
+import type { CareerItem } from '../types/career';
 
 interface CareerRow {
   id: string;

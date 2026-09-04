@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { BlogItem } from '../../data/blogs';
+import type { BlogItem } from '../../types/blogs';
 import styles from './BlogModal.module.css';
 
 interface Props {

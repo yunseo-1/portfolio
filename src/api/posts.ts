@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { BlogItem } from '../data/blogs';
+import type { BlogItem } from '../types/blogs';
 
 interface PostRow {
   id: string;
