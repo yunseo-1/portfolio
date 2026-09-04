@@ -79,22 +79,22 @@ insert into public.skills (id, category, category_order, name, description, abil
    array['React Query','Redux Toolkit','React Router'], 0),
   ('typescript', 'Frontend', 0, 'TypeScript', 'Props 타입 정의와 제네릭 활용 경험이 있습니다.',
    array['인터페이스 기반 타입 설계','제네릭으로 재사용 가능한 컴포넌트 작성'],
-   '{}', 1),
+   array['Zod','ts-node','type-fest'], 1),
   ('java', 'Backend', 1, 'Java', '객체지향 설계와 자료구조 활용에 익숙합니다.',
    array['클래스 설계 및 상속/다형성 활용','컬렉션 프레임워크 기반 자료처리'],
-   '{}', 0),
+   array['Lombok','Jackson','JUnit 5'], 0),
   ('springboot', 'Backend', 1, 'Spring Boot', 'REST API 설계와 계층 분리에 능숙합니다.',
    array['Controller-Service-Repository 계층 설계','예외처리 및 공통 응답 포맷 구성','JWT 기반 인증 흐름 구현'],
    array['Spring Data JPA','Spring Security'], 1),
   ('mysql', 'Backend', 1, 'MySQL', '쿼리 최적화와 스키마 설계 기초를 갖췄습니다.',
    array['정규화된 테이블 설계','인덱스를 활용한 쿼리 튜닝'],
-   '{}', 2),
+   array['MyBatis','HikariCP','Flyway'], 2),
   ('git', 'Data & DevOps', 2, 'Git', '브랜치 전략과 충돌 해결에 익숙합니다.',
    array['Git Flow 기반 브랜치 관리','merge conflict 해결 경험'],
-   '{}', 0),
+   array['Husky','lint-staged','Commitlint'], 0),
   ('docker', 'Data & DevOps', 2, 'Docker', '컨테이너 기반 배포 환경 구성에 익숙합니다.',
    array['Dockerfile 작성 및 이미지 빌드','docker-compose로 멀티 컨테이너 환경 구성'],
-   '{}', 1);
+   array['Docker Compose','Nginx','GitHub Actions'], 1);
 
 insert into public.keyword_questions (keyword, intro, questions, sort_order) values
   ('협업', '''협업''을 선택하셨네요. 팀 프로젝트에서 제가 사람들과 어떻게 일했는지 아래 질문으로 확인해보세요.',

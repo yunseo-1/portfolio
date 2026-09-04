@@ -20,22 +20,24 @@ export default function HomePage() {
   return (
     <>
       <NavBar />
-      <section id="home"><Hero /></section>
-      <section id="career"><CareerTimeline /></section>
-      <section id="wordcloud" className={styles.wordcloudSection}>
-        <div className={styles.wordcloudInner}>
-          <WordCloud
-            onKeywordClick={keyword => setSelectedKeyword({ keyword, at: Date.now() })}
-          />
-          <ChatBot selected={selectedKeyword} />
-        </div>
-      </section>
-      <section id="skills"><SkillsSection /></section>
-      <section id="activity"><ActivityTimeline /></section>
-      <section id="projects"><ProjectsSection /></section>
-      <section id="blog"><BlogSection /></section>
-      <section id="closing"><ClosingSection /></section>
-      <Footer />
+      <main className={styles.main}>
+        <section id="home"><Hero /></section>
+        <section id="career"><CareerTimeline /></section>
+        <section id="wordcloud" className={styles.wordcloudSection}>
+          <div className={styles.wordcloudInner}>
+            <WordCloud
+              onKeywordClick={keyword => setSelectedKeyword({ keyword, at: Date.now() })}
+            />
+            <ChatBot selected={selectedKeyword} />
+          </div>
+        </section>
+        <section id="skills"><SkillsSection /></section>
+        <section id="activity"><ActivityTimeline /></section>
+        <section id="projects"><ProjectsSection /></section>
+        <section id="blog"><BlogSection /></section>
+        <section id="closing"><ClosingSection /></section>
+        <Footer />
+      </main>
     </>
   );
 }
