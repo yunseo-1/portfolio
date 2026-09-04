@@ -67,18 +67,30 @@ create table if not exists public.skills (
   created_at     timestamptz not null default now()
 );
 
+-- ---------- keyword_questions (워드클라우드 키워드별 추천 질문) ----------
+create table if not exists public.keyword_questions (
+  id         uuid primary key default gen_random_uuid(),
+  keyword    text unique not null,   -- WordCloud 단어와 정확히 일치
+  intro      text not null,          -- 키워드 클릭 시 챗봇 초기 메시지
+  questions  text[] not null default '{}',
+  sort_order int not null default 0,
+  created_at timestamptz not null default now()
+);
+
 -- =============================================================
 -- RLS: 전체 공개 읽기 전용 (익명 키로 select만 허용, 쓰기 없음)
 -- 데이터 수정은 대시보드 Table Editor / SQL 로만
 -- =============================================================
-alter table public.projects   enable row level security;
-alter table public.activities enable row level security;
-alter table public.career     enable row level security;
-alter table public.posts      enable row level security;
-alter table public.skills     enable row level security;
+alter table public.projects           enable row level security;
+alter table public.activities         enable row level security;
+alter table public.career             enable row level security;
+alter table public.posts              enable row level security;
+alter table public.skills             enable row level security;
+alter table public.keyword_questions  enable row level security;
 
-create policy "public read" on public.projects   for select using (true);
-create policy "public read" on public.activities for select using (true);
-create policy "public read" on public.career     for select using (true);
-create policy "public read" on public.posts      for select using (true);
-create policy "public read" on public.skills     for select using (true);
+create policy "public read" on public.projects          for select using (true);
+create policy "public read" on public.activities        for select using (true);
+create policy "public read" on public.career            for select using (true);
+create policy "public read" on public.posts             for select using (true);
+create policy "public read" on public.skills            for select using (true);
+create policy "public read" on public.keyword_questions for select using (true);

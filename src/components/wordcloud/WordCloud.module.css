@@ -1,17 +1,25 @@
 /* WordCloud.module.css */
 .cloudWrapper {
-  background: #000000;
-  padding: 60px 48px;      
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .heading {
-  font-size: 26px;          
+  font-size: 26px;
   font-weight: 800;
-  color: #FF3EA5;
-  align-self: flex-start;   
-  margin: 0 0 32px;         
+  color: #ff3ea5;
+  align-self: flex-start;
+  margin: 0 0 8px;
+}
+
+.hint {
+  align-self: flex-start;
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: #a1a1aa;
+}
+
+.svg {
+  max-width: 100%;
 }

@@ -12,6 +12,11 @@ interface WordItem {
   color: string;
 }
 
+interface WordCloudProps {
+  /** 키워드(단어) 클릭 시 호출된다 */
+  onKeywordClick?: (keyword: string) => void;
+}
+
 const wordData: WordItem[] = [
   { text: '개발', value: 90, color: '#FFFFFF' },
   { text: '프론트엔드', value: 75, color: '#FF3EA5' },
@@ -32,11 +37,17 @@ const wordData: WordItem[] = [
   { text: '몰입', value: 21, color: '#52525B' },
 ];
 
-const WIDTH = 700;
-const HEIGHT = 340;
+const WIDTH = 620;
+const HEIGHT = 360;
 
-export default function WordCloud() {
+export default function WordCloud({ onKeywordClick }: WordCloudProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+
+  // effect는 최초 1회만 실행되므로, 최신 콜백은 ref로 참조한다.
+  const onKeywordClickRef = useRef(onKeywordClick);
+  useEffect(() => {
+    onKeywordClickRef.current = onKeywordClick;
+  });
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -58,7 +69,7 @@ export default function WordCloud() {
       const svg = d3.select(svgRef.current);
       svg.selectAll('*').remove();
 
-      svg
+      const nodes = svg
         .append('g')
         .attr('transform', `translate(${WIDTH / 2}, ${HEIGHT / 2})`)
         .selectAll('text')
@@ -69,16 +80,27 @@ export default function WordCloud() {
         .style('font-family', 'sans-serif')
         .style('font-weight', 700)
         .style('fill', (d: any) => colorMap[d.text] ?? '#A1A1AA')
+        .style('cursor', 'pointer')
         .attr('text-anchor', 'middle')
         .attr('transform', (d: any) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
-        .text((d: any) => d.text);
+        .text((d: any) => d.text)
+        .on('click', (_event: unknown, d: any) => onKeywordClickRef.current?.(d.text))
+        .on('mouseover', function (this: SVGTextElement) {
+          d3.select(this).transition().duration(120).style('opacity', 0.6);
+        })
+        .on('mouseout', function (this: SVGTextElement) {
+          d3.select(this).transition().duration(120).style('opacity', 1);
+        });
+
+      nodes.append('title').text((d: any) => `"${d.text}" 관련 질문 보기`);
     }
   }, []);
 
   return (
     <div className={styles.cloudWrapper}>
       <h2 className={styles.heading}>WordCloud</h2>
-      <svg ref={svgRef} width={WIDTH} height={HEIGHT} />
+      <p className={styles.hint}>키워드를 누르면 옆 챗봇에 관련 질문이 추천돼요.</p>
+      <svg ref={svgRef} width={WIDTH} height={HEIGHT} className={styles.svg} />
     </div>
   );
 }

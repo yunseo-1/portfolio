@@ -25,7 +25,7 @@ export default function ActivityTimeline() {
               onMouseLeave={() => setActiveId(null)}
               className={`${styles.item} ${isActive ? styles.active : styles.inactive}`}
             >
-              <span className={styles.dot} />
+              <span className={styles.dot} /> 
               <div className={styles.content}>
                 <div className={styles.meta}>
                   <span className={styles.tag}>{item.type}</span>
