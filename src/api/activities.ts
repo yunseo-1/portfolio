@@ -1,5 +1,5 @@
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { activitiesData, type ActivityItem } from '../data/activities';
+import { supabase } from '../lib/supabase';
+import type { ActivityItem } from '../data/activities';
 
 interface ActivityRow {
   id: string;
@@ -10,8 +10,6 @@ interface ActivityRow {
 }
 
 export async function getActivities(): Promise<ActivityItem[]> {
-  if (!isSupabaseConfigured) return activitiesData;
-
   const { data, error } = await supabase
     .from('activities')
     .select('*')

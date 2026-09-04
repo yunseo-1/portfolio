@@ -28,9 +28,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
   padding: 24px 0;
+  border: none;
   border-bottom: 1px solid #27272A;
-  text-decoration: none;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 

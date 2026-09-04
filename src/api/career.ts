@@ -1,5 +1,5 @@
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { careerData, type CareerItem } from '../data/career';
+import { supabase } from '../lib/supabase';
+import type { CareerItem } from '../data/career';
 
 interface CareerRow {
   id: string;
@@ -9,8 +9,6 @@ interface CareerRow {
 }
 
 export async function getCareer(): Promise<CareerItem[]> {
-  if (!isSupabaseConfigured) return careerData;
-
   const { data, error } = await supabase
     .from('career')
     .select('*')

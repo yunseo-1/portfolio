@@ -1,6 +1,5 @@
 truncate table public.projects, public.activities, public.career, public.posts, public.skills, public.keyword_questions;
 
--- ---------- projects ----------
 insert into public.projects
   (slug, title, thumbnail_url, role, member_count, period, stack, summary, demo_url, github_url,
    overview, responsibilities, implementations, troubleshooting, learnings, sort_order)
@@ -46,7 +45,6 @@ values
    '제한된 시간 안에서 우선순위를 정해 핵심 기능부터 완성하는 경험을 했습니다.',
    2);
 
--- ---------- activities ----------
 insert into public.activities (type, date, title, description, sort_order) values
   ('해커톤', '2021.03', 'HackDay 2023 최우수상', '글로벌 해커톤 본선 진출', 0),
   ('해커톤', '2024.05', 'JUNCTION ASIA 2024 해커톤', 'OCR 기반 데이터 처리 API 구현, 공공데이터 API 연동', 1),
@@ -54,7 +52,6 @@ insert into public.activities (type, date, title, description, sort_order) value
   ('공모전', '2022.11', '교내 캡스톤 프로젝트 대상', '자취생 커뮤니티 앱 기획 및 개발', 3),
   ('밋업', '2024.08', 'DevCamp 네트워킹 밋업', '동료 개발자들과 프로젝트 회고 공유', 4);
 
--- ---------- career (title의 \n = 실제 줄바꿈, E'' 문자열) ----------
 insert into public.career (date, title, description, sort_order) values
   ('2021.03', E'한국공학대학교\n컴퓨터공학과 입학', '웹 프로그래밍 동아리 활동 시작', 0),
   ('2022.07', '걸음마 시작', '자취생 커뮤니티 앱 기획 개발', 1),
@@ -62,14 +59,20 @@ insert into public.career (date, title, description, sort_order) values
   ('2023.09', E'(주)파랑새\n프론트엔드 인턴', '결제 프로덕트 팀 합류', 3),
   ('2024.03', E'현대오토에버\n프론트엔드 인턴', '프론트엔드 개발 팀 합류', 4);
 
--- ---------- posts ----------
-insert into public.posts (title, description, platform, published_on, url, sort_order) values
-  ('디자인시스템 컴포넌트 네이밍 원칙 정리', '팀 프로젝트에서 컴포넌트 이름을 통일하며 배운 네이밍 규칙', '벨로그', '2025.08', 'https://velog.io/@yunseo/design-system-naming', 0),
-  ('IntersectionObserver로 스크롤 애니메이션 구현하기', '뷰포트 진입 감지로 부드러운 타임라인 인터랙션 만든 과정', '벨로그', '2025.08', 'https://velog.io/@yunseo/intersection-observer', 1),
-  ('CSS 모듈과 전역 스타일 분리 전략', '팀 프로젝트에서 스타일 충돌을 방지한 방법 정리', '노션', '2025.07', 'https://notion.so/example', 2),
-  ('Spring Boot 예외 처리 공통화하기', 'ControllerAdvice로 에러 응답 포맷을 통일한 경험', '벨로그', '2025.06', 'https://velog.io/@yunseo/spring-exception-handling', 3);
+insert into public.posts (title, description, platform, published_on, url, excerpt, content, sort_order) values
+  ('디자인시스템 컴포넌트 네이밍 원칙 정리', '팀 프로젝트에서 컴포넌트 이름을 통일하며 배운 네이밍 규칙', '벨로그', '2025.08', 'https://velog.io/@yunseo/design-system-naming',
+   '4인 팀 프로젝트를 시작하면서 가장 먼저 부딪힌 문제는 "이 컴포넌트를 뭐라고 부를까?"였습니다. 같은 버튼인데 누구는 Btn, 누구는 CommonButton, 누구는 BaseButton으로 만들었고, PR 리뷰마다 이름 얘기로 시간을 쏟았습니다.',
+   E'4인 팀 프로젝트를 시작하면서 가장 먼저 부딪힌 문제는 "이 컴포넌트를 뭐라고 부를까?"였습니다. 같은 버튼인데 누구는 Btn, 누구는 CommonButton, 누구는 BaseButton으로 만들었고, PR 리뷰마다 이름 얘기로 시간을 쏟았습니다.\n\n그래서 팀 회의에서 네이밍 규칙 세 가지를 먼저 못박았습니다. 첫째, 역할이 아니라 형태로 이름 짓기(PrimaryButton이 아니라 Button + variant). 둘째, 접두사 Common/Base 금지 — 공용이 기본값이므로 굳이 표시하지 않는다. 셋째, 도메인 컴포넌트는 도메인 이름을 접두사로(ProjectCard, BlogModal).\n\n규칙을 적용하고 나니 리뷰에서 이름 관련 코멘트가 거의 사라졌고, 새 컴포넌트를 만들 때 고민하는 시간도 줄었습니다. 이름은 사소해 보이지만, 팀이 같은 단어를 쓰는 것만으로도 커뮤니케이션 비용이 크게 떨어진다는 걸 체감했습니다.\n\n다음 프로젝트에서는 이 규칙을 문서 한 장으로 정리해 온보딩 자료에 넣을 계획입니다.', 0),
+  ('IntersectionObserver로 스크롤 애니메이션 구현하기', '뷰포트 진입 감지로 부드러운 타임라인 인터랙션 만든 과정', '벨로그', '2025.08', 'https://velog.io/@yunseo/intersection-observer',
+   'Activity 타임라인이 스크롤에 따라 하나씩 나타나게 만들고 싶었습니다. 처음엔 scroll 이벤트에 getBoundingClientRect를 붙였는데, 스크롤 한 번에 수십 번씩 계산이 돌면서 프레임이 눈에 띄게 끊겼습니다.',
+   E'Activity 타임라인이 스크롤에 따라 하나씩 나타나게 만들고 싶었습니다. 처음엔 scroll 이벤트에 getBoundingClientRect를 붙였는데, 스크롤 한 번에 수십 번씩 계산이 돌면서 프레임이 눈에 띄게 끊겼습니다.\n\nIntersectionObserver로 바꾸니 브라우저가 교차 여부를 알아서 콜백으로 넘겨줬고, 메인 스레드에서 레이아웃을 강제로 읽는 일이 사라졌습니다. threshold를 0.2로 두고, 한 번 나타난 요소는 unobserve해서 다시 관찰하지 않도록 했습니다.\n\nReact에서는 useEffect 안에서 observer를 만들고, ref 배열로 각 타임라인 항목을 등록했습니다. 정리(cleanup)에서 disconnect를 호출하는 걸 빼먹으면 언마운트 후에도 콜백이 남으니 주의가 필요합니다.\n\n결과적으로 스크롤은 60fps를 유지했고, 코드도 scroll 이벤트 버전보다 짧아졌습니다. "직접 계산하지 말고 브라우저에게 맡길 수 있는지" 먼저 확인하는 습관이 생겼습니다.', 1),
+  ('CSS 모듈과 전역 스타일 분리 전략', '팀 프로젝트에서 스타일 충돌을 방지한 방법 정리', '노션', '2025.07', 'https://notion.so/example',
+   '팀원이 늘어나면서 A가 만든 .card 스타일이 B의 화면을 깨뜨리는 일이 반복됐습니다. 전역 CSS 하나에 모두 몰아넣은 게 원인이었습니다.',
+   E'팀원이 늘어나면서 A가 만든 .card 스타일이 B의 화면을 깨뜨리는 일이 반복됐습니다. 전역 CSS 하나에 모두 몰아넣은 게 원인이었습니다.\n\n규칙을 이렇게 나눴습니다. 전역(styles/index.css)에는 디자인 토큰(색상·타이포·스페이싱 변수)과 reset, 그리고 body/#root 같은 최상위 레이아웃만 둔다. 그 외 모든 컴포넌트 스타일은 *.module.css로 만들어 클래스가 지역 스코프를 갖게 한다.\n\n토큰을 CSS 변수로 빼두니 다크모드 대응도 :root 한 곳만 바꾸면 됐고, 컴포넌트는 var(--accent)처럼 참조만 하면 됐습니다. 덕분에 "이 색을 바꾸면 어디가 영향받지?"라는 질문이 사라졌습니다.\n\n결론은 간단합니다. 전역은 최소한으로, 나머지는 모듈로. 이 경계만 지켜도 스타일 충돌의 대부분이 없어집니다.', 2),
+  ('Spring Boot 예외 처리 공통화하기', 'ControllerAdvice로 에러 응답 포맷을 통일한 경험', '벨로그', '2025.06', 'https://velog.io/@yunseo/spring-exception-handling',
+   '해커톤에서 백엔드를 맡았을 때, 컨트롤러마다 try-catch로 에러를 처리하다 보니 응답 JSON 형태가 제각각이었습니다. 프론트엔드 팀원이 "에러 포맷을 하나로 정해달라"고 요청했습니다.',
+   E'해커톤에서 백엔드를 맡았을 때, 컨트롤러마다 try-catch로 에러를 처리하다 보니 응답 JSON 형태가 제각각이었습니다. 프론트엔드 팀원이 "에러 포맷을 하나로 정해달라"고 요청했습니다.\n\n@RestControllerAdvice 클래스를 하나 만들고, @ExceptionHandler로 예외 타입별 처리를 모았습니다. 비즈니스 예외는 BusinessException 하나로 통일하고, 그 안에 ErrorCode enum(코드·메시지·HTTP 상태)을 담았습니다.\n\n응답 바디는 { code, message } 형태로 고정했고, 검증 실패(MethodArgumentNotValidException)는 필드별 에러를 배열로 함께 내려줬습니다. 이제 새 예외가 필요하면 ErrorCode에 한 줄만 추가하면 됩니다.\n\n프론트엔드는 code만 보고 분기하면 되니 연동이 빨라졌고, 로그도 한 곳에서 찍혀 디버깅이 쉬워졌습니다. 예외 처리는 흩어놓으면 빚이 되고, 모아두면 자산이 된다는 걸 배웠습니다.', 3);
 
--- ---------- skills ----------
 insert into public.skills (id, category, category_order, name, description, abilities, libraries, sort_order) values
   ('react', 'Frontend', 0, 'React', '상태 관리와 컴포넌트 설계에 능숙합니다.',
    array['컴포넌트 재사용 구조 설계','커스텀 훅으로 로직 분리','렌더링 최적화(memo, useCallback)'],
@@ -93,7 +96,6 @@ insert into public.skills (id, category, category_order, name, description, abil
    array['Dockerfile 작성 및 이미지 빌드','docker-compose로 멀티 컨테이너 환경 구성'],
    '{}', 1);
 
--- ---------- keyword_questions (작은따옴표는 '' 로 이스케이프) ----------
 insert into public.keyword_questions (keyword, intro, questions, sort_order) values
   ('협업', '''협업''을 선택하셨네요. 팀 프로젝트에서 제가 사람들과 어떻게 일했는지 아래 질문으로 확인해보세요.',
    array['팀 프로젝트에서 협업을 어떻게 했나요?','팀원 간 의견이 갈렸을 때 어떻게 조율했나요?','리드 역할을 맡았을 때 작업 분배는 어떤 기준으로 했나요?'], 0),

@@ -1,5 +1,5 @@
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { projectsData, type ProjectItem } from '../data/projects';
+import { supabase } from '../lib/supabase';
+import type { ProjectItem } from '../data/projects';
 
 interface ProjectRow {
   slug: string;
@@ -44,8 +44,6 @@ function fromRow(row: ProjectRow): ProjectItem {
 }
 
 export async function getProjects(): Promise<ProjectItem[]> {
-  if (!isSupabaseConfigured) return projectsData;
-
   const { data, error } = await supabase
     .from('projects')
     .select('*')

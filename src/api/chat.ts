@@ -1,4 +1,8 @@
-import { BOT_SYSTEM_PROMPT } from '../data/botContext';
+import { buildBotSystemPrompt } from '../data/botContext';
+import { getCareer } from './career';
+import { getProjects } from './projects';
+import { getActivities } from './activities';
+import { getSkills } from './skills';
 
 /**
  * Gemini 직접 호출 (프론트엔드).
@@ -20,6 +24,31 @@ interface GeminiPart {
   text?: string;
 }
 
+/**
+ * 시스템 프롬프트는 포트폴리오 데이터(Supabase)를 요약해 만든다.
+ * 세션 중 한 번만 조회하도록 promise를 캐시하고, 실패 시 다음 호출에서 재시도한다.
+ */
+let systemPromptPromise: Promise<string> | null = null;
+
+function getSystemPrompt(): Promise<string> {
+  if (!systemPromptPromise) {
+    systemPromptPromise = Promise.all([
+      getCareer(),
+      getProjects(),
+      getActivities(),
+      getSkills(),
+    ])
+      .then(([career, projects, activities, skills]) =>
+        buildBotSystemPrompt({ career, projects, activities, skills }),
+      )
+      .catch(err => {
+        systemPromptPromise = null;
+        throw err;
+      });
+  }
+  return systemPromptPromise;
+}
+
 export async function sendChatMessage(history: ChatTurn[]): Promise<string> {
   if (!API_KEY) {
     return 'AI 응답 기능이 아직 연결되지 않았어요. (VITE_GEMINI_API_KEY 를 설정하면 활성화됩니다.)';
@@ -34,11 +63,13 @@ export async function sendChatMessage(history: ChatTurn[]): Promise<string> {
     parts: [{ text: t.text }],
   }));
 
+  const systemPrompt = await getSystemPrompt();
+
   const res = await fetch(`${ENDPOINT}?key=${API_KEY}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      system_instruction: { parts: [{ text: BOT_SYSTEM_PROMPT }] },
+      system_instruction: { parts: [{ text: systemPrompt }] },
       contents,
       // thinking 토큰도 maxOutputTokens에 포함되므로 넉넉히 잡고,
       // 응답 지연을 줄이기 위해 thinking을 최소로 낮춘다.

@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import { getPosts } from '../../api/posts';
 import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
+import type { BlogItem } from '../../data/blogs';
+import BlogModal from './BlogModal';
 import styles from './BlogSection.module.css';
 
 export default function BlogSection() {
   const { data } = useSupabaseQuery('posts', getPosts);
   const posts = data ?? [];
+
+  const [selectedBlog, setSelectedBlog] = useState<BlogItem | null>(null);
 
   return (
     <section className={styles.section}>
@@ -13,12 +18,11 @@ export default function BlogSection() {
 
       <div className={styles.list}>
         {posts.map(blog => (
-          <a
+          <button
             key={blog.id}
-            href={blog.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            type="button"
             className={styles.item}
+            onClick={() => setSelectedBlog(blog)}
           >
             <div className={styles.textBox}>
               <h3 className={styles.title}>{blog.title}</h3>
@@ -32,9 +36,13 @@ export default function BlogSection() {
                 <path d="M9 16L15 12L9 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-          </a>
+          </button>
         ))}
       </div>
+
+      {selectedBlog && (
+        <BlogModal blog={selectedBlog} onClose={() => setSelectedBlog(null)} />
+      )}
     </section>
   );
 }

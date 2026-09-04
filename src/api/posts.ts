@@ -1,5 +1,5 @@
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { blogsData, type BlogItem } from '../data/blogs';
+import { supabase } from '../lib/supabase';
+import type { BlogItem } from '../data/blogs';
 
 interface PostRow {
   id: string;
@@ -8,11 +8,11 @@ interface PostRow {
   platform: BlogItem['platform'];
   published_on: string;
   url: string;
+  excerpt: string | null;
+  content: string | null;
 }
 
 export async function getPosts(): Promise<BlogItem[]> {
-  if (!isSupabaseConfigured) return blogsData;
-
   const { data, error } = await supabase
     .from('posts')
     .select('*')
@@ -26,5 +26,7 @@ export async function getPosts(): Promise<BlogItem[]> {
     platform: row.platform,
     date: row.published_on,
     url: row.url,
+    excerpt: row.excerpt ?? row.description,
+    content: row.content ?? row.description,
   }));
 }

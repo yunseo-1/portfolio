@@ -1,4 +1,3 @@
--- ---------- projects ----------
 create table if not exists public.projects (
   id               uuid primary key default gen_random_uuid(),
   slug             text unique not null,
@@ -21,7 +20,6 @@ create table if not exists public.projects (
   created_at       timestamptz not null default now()
 );
 
--- ---------- activities ----------
 create table if not exists public.activities (
   id          uuid primary key default gen_random_uuid(),
   type        text not null check (type in ('해커톤','공모전','대외활동','스터디','밋업','대회')),
@@ -32,29 +30,28 @@ create table if not exists public.activities (
   created_at  timestamptz not null default now()
 );
 
--- ---------- career ----------
 create table if not exists public.career (
   id          uuid primary key default gen_random_uuid(),
   date        text not null,
-  title       text not null,          -- 줄바꿈은 \n 그대로 저장
+  title       text not null,         
   description text not null,
   sort_order  int not null default 0,
   created_at  timestamptz not null default now()
 );
 
--- ---------- posts (블로그/노션 글) ----------
 create table if not exists public.posts (
   id           uuid primary key default gen_random_uuid(),
   title        text not null,
-  description  text not null,
+  description  text not null,          -- 목록에 보이는 한 줄 요약
   platform     text not null check (platform in ('벨로그','노션')),
   published_on text not null,          -- '2025.08'
   url          text not null,
+  excerpt      text,                   -- 모달에서 "상세보기" 전에 노출되는 윗내용 일부
+  content      text,                   -- "상세보기" 시 조회되는 전체 본문 (문단은 빈 줄로 구분)
   sort_order   int not null default 0,
   created_at   timestamptz not null default now()
 );
 
--- ---------- skills ----------
 create table if not exists public.skills (
   id             text primary key,     -- 'react', 'springboot' ... (아이콘 파일명과 매칭)
   category       text not null,        -- 'Frontend' | 'Backend' | 'Data & DevOps'
@@ -67,7 +64,6 @@ create table if not exists public.skills (
   created_at     timestamptz not null default now()
 );
 
--- ---------- keyword_questions (워드클라우드 키워드별 추천 질문) ----------
 create table if not exists public.keyword_questions (
   id         uuid primary key default gen_random_uuid(),
   keyword    text unique not null,   -- WordCloud 단어와 정확히 일치
@@ -77,10 +73,6 @@ create table if not exists public.keyword_questions (
   created_at timestamptz not null default now()
 );
 
--- =============================================================
--- RLS: 전체 공개 읽기 전용 (익명 키로 select만 허용, 쓰기 없음)
--- 데이터 수정은 대시보드 Table Editor / SQL 로만
--- =============================================================
 alter table public.projects           enable row level security;
 alter table public.activities         enable row level security;
 alter table public.career             enable row level security;
