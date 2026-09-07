@@ -33,11 +33,15 @@ export default function ProjectModal({ project, onClose }: Props) {
 
         <p className={styles.summary}>{project.summary}</p>
 
-        <div className={styles.imageRow}>
-          {[0, 1, 2].map(i => (
-            <div key={i} className={styles.imagePlaceholder} />
-          ))}
-        </div>
+        {project.image ? (
+          <img src={project.image} alt={project.title} className={styles.modalImage} />
+        ) : (
+          <div className={styles.imageRow}>
+            {[0, 1, 2].map(i => (
+              <div key={i} className={styles.imagePlaceholder} />
+            ))}
+          </div>
+        )}
 
         <button
           className={styles.toggleBtn}

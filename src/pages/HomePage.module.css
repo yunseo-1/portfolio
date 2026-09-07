@@ -6,7 +6,19 @@
 
 .wordcloudSection {
   background: var(--bg);
-  padding: var(--section-y) var(--section-x);
+  padding: var(--section-y) 32px;
+}
+
+@media (max-width: 768px) {
+  .wordcloudSection {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wordcloudSection {
+    padding-inline: 16px;
+  }
 }
 
 .wordcloudInner {

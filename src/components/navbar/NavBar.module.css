@@ -17,21 +17,11 @@
   left: 24px;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
   padding: 0;
   background: transparent;
   border: none;
   cursor: pointer;
   color: var(--text-h);
-}
-
-.brandLogo {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  display: block;
 }
 
 .brandName {
@@ -91,9 +81,6 @@
   .brand {
     left: 16px;
   }
-  .brandName {
-    display: none;
-  }
   .themeToggle {
     right: 16px;
   }
@@ -111,6 +98,10 @@
     position: static;
     transform: none;
     flex-shrink: 0;
+  }
+
+  .brandName {
+    font-size: 13px;
   }
 
   .links {

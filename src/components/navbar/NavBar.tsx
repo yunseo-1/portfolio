@@ -43,7 +43,6 @@ export default function NavBar() {
         onClick={() => handleClick('home')}
         aria-label="맨 위로"
       >
-        <img src="/favicon.svg" alt="" className={styles.brandLogo} />
         <span className={styles.brandName}>김윤서's portfolio</span>
       </button>
 

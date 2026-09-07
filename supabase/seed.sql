@@ -4,7 +4,7 @@ insert into public.projects
   (slug, title, thumbnail_url, role, member_count, period, stack, summary, demo_url, github_url,
    overview, responsibilities, implementations, troubleshooting, learnings, sort_order)
 values
-  ('portfolio', 'Portfolio Project', null, '프론트엔드 리드', 4, '2026.07 ~ 2026.09',
+  ('portfolio', 'Portfolio Project', '/covers/portfolio.svg', '프론트엔드 리드', 4, '2026.07 ~ 2026.09',
    array['React','TypeScript','JavaScript'],
    '현대오토에버 모빌리티 SW 스쿨 첫 번째 프로젝트, 개인 포트폴리오 만들기',
    'https://example.vercel.app', 'https://github.com/yunseo-1/portfolio',
@@ -23,7 +23,7 @@ values
    '디자인 시스템을 코드보다 먼저 문서(디자인 토큰, 컴포넌트 스펙)로 확정해두는 것이 팀 작업 속도와 일관성에 얼마나 큰 영향을 미치는지 체감했습니다.',
    0),
 
-  ('roommate-community', '자취생 커뮤니티 앱', null, '풀스택 개발', 3, '2022.06 ~ 2022.08',
+  ('roommate-community', '자취생 커뮤니티 앱', '/covers/roommate-community.svg', '풀스택 개발', 3, '2022.06 ~ 2022.08',
    array['React','Spring Boot','MySQL'],
    '같은 동네 자취생끼리 생활 정보와 공동구매를 나누는 커뮤니티 서비스',
    'https://example.vercel.app', 'https://github.com/yunseo-1/roommate-community',
@@ -34,7 +34,7 @@ values
    'DB 설계 단계에서 예상 트래픽과 조회 패턴을 미리 고려하는 것의 중요성을 배웠습니다.',
    1),
 
-  ('junction-asia', 'JUNCTION ASIA 2024 해커톤', null, 'Backend Developer', 5, '2024.05',
+  ('junction-asia', 'JUNCTION ASIA 2024 해커톤', '/covers/junction-asia.svg', 'Backend Developer', 5, '2024.05',
    array['Spring Boot','MySQL','OCR API'],
    'OCR 기반 데이터 처리 API 구현 및 공공데이터 API 연동',
    'https://junction-asia-demo.vercel.app', 'https://github.com/yunseo-1/junction-asia-2024',
