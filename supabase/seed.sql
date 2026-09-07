@@ -57,7 +57,11 @@ insert into public.career (date, title, description, sort_order) values
   ('2022.07', '걸음마 시작', '자취생 커뮤니티 앱 기획 개발', 1),
   ('2023.01', E'데브캠프\n8기 수료', '6개월 간 6단계 팀 프로젝트 수행', 2),
   ('2023.09', E'(주)파랑새\n프론트엔드 인턴', '결제 프로덕트 팀 합류', 3),
-  ('2024.03', E'현대오토에버\n프론트엔드 인턴', '프론트엔드 개발 팀 합류', 4);
+  ('2024.03', E'현대오토에버\n프론트엔드 인턴', '프론트엔드 개발 팀 합류', 4),
+  ('2024.09', E'현대오토에버\n모빌리티 SW스쿨 4기', '프론트엔드 심화 6개월 과정 입과', 5),
+  ('2025.03', E'사이드 프로젝트\n"데일리로그" 출시', '기획·개발 1인 · 주간 활성 사용자 300명', 6),
+  ('2025.08', E'오픈소스 기여\nReact 생태계', '문서 번역·버그 수정 PR 6건 머지', 7),
+  ('2026.02', E'기술 블로그\n누적 조회 5만', '벨로그·노션 병행 운영', 8);
 
 insert into public.posts (title, description, platform, published_on, url, excerpt, content, sort_order) values
   ('디자인시스템 컴포넌트 네이밍 원칙 정리', '팀 프로젝트에서 컴포넌트 이름을 통일하며 배운 네이밍 규칙', '벨로그', '2025.08', 'https://velog.io/@yunseo/design-system-naming',
@@ -94,7 +98,31 @@ insert into public.skills (id, category, category_order, name, description, abil
    array['Husky','lint-staged','Commitlint'], 0),
   ('docker', 'Data & DevOps', 2, 'Docker', '컨테이너 기반 배포 환경 구성에 익숙합니다.',
    array['Dockerfile 작성 및 이미지 빌드','docker-compose로 멀티 컨테이너 환경 구성'],
-   array['Docker Compose','Nginx','GitHub Actions'], 1);
+   array['Docker Compose','Nginx','GitHub Actions'], 1),
+  ('nextjs', 'Frontend', 0, 'Next.js', 'App Router 기반 SSR/SSG 구성 경험이 있습니다.',
+   array['서버/클라이언트 컴포넌트 경계 설계','파일 기반 라우팅과 중첩 레이아웃','이미지·폰트 최적화'],
+   array['next/image','next-auth'], 2),
+  ('vite', 'Frontend', 0, 'Vite', '번들러 설정과 빌드 최적화에 익숙합니다.',
+   array['환경변수·alias 설정','코드 스플리팅 및 청크 분석','플러그인으로 빌드 파이프라인 확장'],
+   array['vite-plugin-svgr','rollup-plugin-visualizer'], 3),
+  ('tailwind', 'Frontend', 0, 'Tailwind CSS', '유틸리티 우선 스타일링과 디자인 토큰 연동 경험이 있습니다.',
+   array['config로 디자인 토큰 관리','다크모드 variant 구성','컴포넌트 추출로 중복 제거'],
+   array['tailwind-merge','clsx'], 4),
+  ('nodejs', 'Backend', 1, 'Node.js', '간단한 API 서버와 배치 스크립트 작성 경험이 있습니다.',
+   array['Express 라우팅·미들웨어 구성','비동기 처리와 에러 핸들링','파일·CSV 배치 처리'],
+   array['Express','dotenv'], 3),
+  ('postgresql', 'Backend', 1, 'PostgreSQL', 'Supabase로 스키마 설계와 RLS를 다뤘습니다.',
+   array['테이블·관계 설계','Row Level Security 정책 작성','인덱스로 조회 최적화'],
+   array['Supabase','Prisma'], 4),
+  ('github-actions', 'Data & DevOps', 2, 'GitHub Actions', 'CI 파이프라인 구성 경험이 있습니다.',
+   array['PR 기준 lint·build·test 자동화','캐시로 워크플로 속도 개선','배포 트리거 연동'],
+   array['actions/cache','actions/setup-node'], 2),
+  ('vercel', 'Data & DevOps', 2, 'Vercel', '프론트엔드 배포와 프리뷰·환경변수를 운영합니다.',
+   array['브랜치별 프리뷰 배포','환경변수 분리(Production/Preview)','도메인·리다이렉트 설정'],
+   '{}', 3),
+  ('aws', 'Data & DevOps', 2, 'AWS', 'S3 정적 호스팅과 EC2 기본 운영 경험이 있습니다.',
+   array['S3 정적 웹 호스팅','EC2 배포·SSH 운영','IAM 최소 권한 설정'],
+   '{}', 4);
 
 insert into public.keyword_questions (keyword, intro, questions, sort_order) values
   ('협업', '''협업''을 선택하셨네요. 팀 프로젝트에서 제가 사람들과 어떻게 일했는지 아래 질문으로 확인해보세요.',

@@ -1,5 +1,5 @@
 .section {
-  background: #000000;
+  background: var(--bg);
   padding: 60px 48px;
   text-align: left;
 }
@@ -7,14 +7,14 @@
 .label {
   font-size: 13px;
   font-weight: 700;
-  color: #71717A;
+  color: var(--text-dim);
   letter-spacing: 0.05em;
 }
 
 .heading {
   font-size: 26px;
   font-weight: 800;
-  color: #FF3EA5;
+  color: var(--pink);
   margin: 8px 0 32px;
 }
 
@@ -31,7 +31,7 @@
   width: 100%;
   padding: 24px 0;
   border: none;
-  border-bottom: 1px solid #27272A;
+  border-bottom: 1px solid var(--border);
   background: none;
   font: inherit;
   text-align: left;
@@ -60,20 +60,20 @@
 .title {
   font-size: 17px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-h);
   margin: 0;
 }
 
 .description {
   font-size: 13px;
-  color: #A1A1AA;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .meta {
   font-size: 12px;
   font-weight: 600;
-  color: #71717A;
+  color: var(--text-dim);
 }
 
 .arrow {
@@ -81,8 +81,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid #FF3EA5;
-  color: #FF3EA5;
+  border: 1.5px solid var(--pink);
+  color: var(--pink);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,5 +1,5 @@
 // npm install d3-cloud d3          # 런타임 라이브러리
-// npm install --save-dev @types/d3  # d3 타입 (d3-cloud는 타입 없음, 우리가 만든 .d.ts로 대체)
+// npm install --save-dev @types/d3  # d3 타입 (d3-cloud는 타입이 없고 .d.ts로 대체)
 
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
@@ -13,28 +13,29 @@ interface WordItem {
 }
 
 interface WordCloudProps {
-  /** 키워드(단어) 클릭 시 호출된다 */
+ 
   onKeywordClick?: (keyword: string) => void;
 }
 
+// 색상은 CSS 변수로 지정해 라이트/다크 테마에 자동으로 맞춤
 const wordData: WordItem[] = [
-  { text: '개발', value: 90, color: '#FFFFFF' },
-  { text: '프론트엔드', value: 75, color: '#FF3EA5' },
-  { text: 'React', value: 55, color: '#FF3EA5' },
-  { text: '성장', value: 48, color: '#FF3EA5' },
-  { text: '실행력', value: 46, color: '#FF3EA5' },
-  { text: 'TypeScript', value: 38, color: '#A1A1AA' },
-  { text: '데브옵스', value: 32, color: '#71717A' },
-  { text: '협업', value: 24, color: '#71717A' },
-  { text: '꾸준함', value: 20, color: '#52525B' },
-  { text: '문제해결', value: 18, color: '#3F3F46' },
-  { text: 'JavaScript', value: 30, color: '#A1A1AA' },
-  { text: '커뮤니케이션', value: 22, color: '#71717A' },
-  { text: '백엔드', value: 65, color: '#A1A1AA' },
-  { text: '도전', value: 34, color: '#FF3EA5' },
-  { text: '성실함', value: 16, color: '#3F3F46' },
-  { text: '팀워크', value: 28, color: '#71717A' },
-  { text: '몰입', value: 21, color: '#52525B' },
+  { text: '개발', value: 90, color: 'var(--text-h)' },
+  { text: '프론트엔드', value: 75, color: 'var(--pink)' },
+  { text: 'React', value: 55, color: 'var(--pink)' },
+  { text: '성장', value: 48, color: 'var(--pink)' },
+  { text: '실행력', value: 46, color: 'var(--pink)' },
+  { text: 'TypeScript', value: 38, color: 'var(--text-muted)' },
+  { text: '데브옵스', value: 32, color: 'var(--text-dim)' },
+  { text: '협업', value: 24, color: 'var(--text-dim)' },
+  { text: '꾸준함', value: 20, color: 'var(--dot)' },
+  { text: '문제해결', value: 18, color: 'var(--dot)' },
+  { text: 'JavaScript', value: 30, color: 'var(--text-muted)' },
+  { text: '커뮤니케이션', value: 22, color: 'var(--text-dim)' },
+  { text: '백엔드', value: 65, color: 'var(--text-muted)' },
+  { text: '도전', value: 34, color: 'var(--pink)' },
+  { text: '성실함', value: 16, color: 'var(--dot)' },
+  { text: '팀워크', value: 28, color: 'var(--text-dim)' },
+  { text: '몰입', value: 21, color: 'var(--dot)' },
 ];
 
 const WIDTH = 620;
@@ -43,7 +44,6 @@ const HEIGHT = 360;
 export default function WordCloud({ onKeywordClick }: WordCloudProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // effect는 최초 1회만 실행되므로, 최신 콜백은 ref로 참조한다.
   const onKeywordClickRef = useRef(onKeywordClick);
   useEffect(() => {
     onKeywordClickRef.current = onKeywordClick;
@@ -79,7 +79,7 @@ export default function WordCloud({ onKeywordClick }: WordCloudProps) {
         .style('font-size', (d: any) => `${d.size}px`)
         .style('font-family', 'sans-serif')
         .style('font-weight', 700)
-        .style('fill', (d: any) => colorMap[d.text] ?? '#A1A1AA')
+        .style('fill', (d: any) => colorMap[d.text] ?? 'var(--text-muted)')
         .style('cursor', 'pointer')
         .attr('text-anchor', 'middle')
         .attr('transform', (d: any) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
@@ -98,8 +98,8 @@ export default function WordCloud({ onKeywordClick }: WordCloudProps) {
 
   return (
     <div className={styles.cloudWrapper}>
-      <h2 className={styles.heading}>WordCloud</h2>
-      <p className={styles.hint}>키워드를 누르면 옆 챗봇에 관련 질문이 추천돼요.</p>
+      <h2 className={styles.heading}>About Me</h2>
+      <p className={styles.hint}>키워드를 누르면 챗봇에 관련 질문이 추천돼요.</p>
       <svg ref={svgRef} width={WIDTH} height={HEIGHT} className={styles.svg} />
     </div>
   );

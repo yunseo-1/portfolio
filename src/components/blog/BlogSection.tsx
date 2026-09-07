@@ -13,8 +13,8 @@ export default function BlogSection() {
 
   return (
     <section className={styles.section}>
-      <span className={styles.label}>BLOGS</span>
-      <h2 className={styles.heading}>공부하고 기록한 글들</h2>
+      <span className={styles.label}>공부하고 기록한 글들</span>
+      <h2 className={styles.heading}>Blog</h2>
 
       <div className={styles.list}>
         {posts.map(blog => (

@@ -1,23 +1,45 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
+  /* ---------- 색상 토큰: 라이트(기본) ---------- */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f3f2f6;
+  --surface-2-hover: #e9e7ef;
+  --surface-3: #ebe9f1;
+  --surface-3b: #f7f6fa;
   --border: #e5e4e7;
+  --border-strong: #d3d1d9;
+  --overlay: rgba(20, 18, 28, 0.45);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+
+  --text: #3f3c45;
+  --text-muted: #6b6375;
+  --text-dim: #8b8593;
+  --text-h: #08060d;
+
+  --pink: #d81b83;
+  --pink-fill: #ff3ea5;
+  --pink-weak: #b4327a;
+  --pink-bg: rgba(255, 62, 165, 0.12);
+  --pink-glow: rgba(255, 62, 165, 0.25);
+  --dot: #d1cfd8;
+
+  --accent: var(--pink);
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  color-scheme: light;
+
+  /* ---------- 비색상 토큰 ---------- */
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -30,23 +52,77 @@
   }
 }
 
+/* ---------- 색상 토큰: 다크 (명시적 선택) ---------- */
+:root[data-theme='dark'] {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #18181b;
+  --surface-2-hover: #1f1f23;
+  --surface-3: #1c1c22;
+  --surface-3b: #000000;
+  --border: #27272a;
+  --border-strong: #3a3a40;
+  --overlay: rgba(0, 0, 0, 0.75);
+  --nav-bg: rgba(0, 0, 0, 0.85);
+
+  --text: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --text-h: #f3f4f6;
+
+  --pink: #ff3ea5;
+  --pink-fill: #ff3ea5;
+  --pink-weak: #ff8fc7;
+  --pink-bg: rgba(255, 62, 165, 0.12);
+  --pink-glow: rgba(255, 62, 165, 0.25);
+  --dot: #3f3f46;
+
+  --accent: var(--pink);
+  --code-bg: #1f2028;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --social-bg: rgba(47, 48, 58, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+  color-scheme: dark;
+}
+
+/* ---------- JS 미실행 등으로 data-theme 이 없을 때: 시스템 설정 존중 ---------- */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
+  :root:not([data-theme='light']) {
+    --bg: #000000;
+    --surface: #0a0a0a;
+    --surface-2: #18181b;
+    --surface-2-hover: #1f1f23;
+    --surface-3: #1c1c22;
+    --surface-3b: #000000;
+    --border: #27272a;
+    --border-strong: #3a3a40;
+    --overlay: rgba(0, 0, 0, 0.75);
+    --nav-bg: rgba(0, 0, 0, 0.85);
+
+    --text: #d4d4d8;
+    --text-muted: #a1a1aa;
+    --text-dim: #71717a;
     --text-h: #f3f4f6;
-    --bg: #000;
-    --border: #2e303a;
+
+    --pink: #ff3ea5;
+    --pink-fill: #ff3ea5;
+    --pink-weak: #ff8fc7;
+    --pink-bg: rgba(255, 62, 165, 0.12);
+    --pink-glow: rgba(255, 62, 165, 0.25);
+    --dot: #3f3f46;
+
+    --accent: var(--pink);
     --code-bg: #1f2028;
-    --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    color-scheme: dark;
   }
 }
 
@@ -69,6 +145,7 @@ html {
 
 body {
   margin: 0;
+  background: var(--bg);
 }
 
 h1,

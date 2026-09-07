@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ProjectItem } from '../../types/projects';
+import ProjectLinks from './ProjectLinks';
 import styles from './ProjectModal.module.css';
 
 interface Props {
@@ -17,10 +18,7 @@ export default function ProjectModal({ project, onClose }: Props) {
 
         <div className={styles.header}>
           <h2 className={styles.title}>{project.title}</h2>
-          <div className={styles.icons}>
-            {project.links.demo && <span className={styles.iconBtn}>🔗</span>}
-            {project.links.github && <span className={styles.iconBtn}>🐙</span>}
-          </div>
+          <ProjectLinks links={project.links} />
         </div>
 
         <div className={styles.tagRow}>

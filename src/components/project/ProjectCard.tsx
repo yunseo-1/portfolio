@@ -1,4 +1,5 @@
 import type { ProjectItem } from '../../types/projects';
+import ProjectLinks from './ProjectLinks';
 import styles from './ProjectCard.module.css';
 
 interface Props {
@@ -20,10 +21,7 @@ export default function ProjectCard({ project, onClick }: Props) {
       <div className={styles.content}>
         <div className={styles.titleRow}>
           <h3 className={styles.title}>{project.title}</h3>
-          <div className={styles.icons}>
-            {project.links.demo && <span className={styles.iconBtn}>🔗</span>}
-            {project.links.github && <span className={styles.iconBtn}>🐙</span>}
-          </div>
+          <ProjectLinks links={project.links} />
         </div>
 
         <p className={styles.meta}>

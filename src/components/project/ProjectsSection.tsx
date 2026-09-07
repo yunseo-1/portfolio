@@ -13,8 +13,8 @@ export default function ProjectsSection() {
 
   return (
     <section className={styles.section}>
-      <span className={styles.label}>PROJECTS</span>
-      <h2 className={styles.heading}>프로젝트</h2>
+      <span className={styles.label}>프로젝트</span>
+      <h2 className={styles.heading}>Project</h2>
 
       <div className={styles.list}>
         {projects.map(project => (

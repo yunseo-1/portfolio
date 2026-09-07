@@ -1,5 +1,5 @@
 .section {
-  background: #000000;
+  background: var(--bg);
   padding: 60px 48px;
   text-align: left;
 }
@@ -7,14 +7,14 @@
 .label {
   font-size: 13px;
   font-weight: 700;
-  color: #71717A;
+  color: var(--text-dim);
   letter-spacing: 0.05em;
 }
 
 .heading {
   font-size: 26px;
   font-weight: 800;
-  color: #FF3EA5;
+  color: var(--pink);
   margin: 8px 0 32px;
 }
 

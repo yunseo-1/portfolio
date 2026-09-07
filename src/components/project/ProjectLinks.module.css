@@ -1,0 +1,16 @@
+.links {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+
+.iconLink:hover {
+  color: var(--pink);
+}

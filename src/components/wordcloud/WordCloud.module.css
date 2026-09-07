@@ -8,7 +8,7 @@
 .heading {
   font-size: 26px;
   font-weight: 800;
-  color: #ff3ea5;
+  color: var(--pink);
   align-self: flex-start;
   margin: 0 0 8px;
 }
@@ -17,7 +17,7 @@
   align-self: flex-start;
   margin: 0 0 24px;
   font-size: 13px;
-  color: #a1a1aa;
+  color: var(--text-muted);
 }
 
 .svg {

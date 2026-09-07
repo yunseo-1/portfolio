@@ -1,5 +1,5 @@
 .section {
-  background: #000000;
+  background: var(--bg);
   padding: 60px 48px;
   text-align: left;
 }
@@ -7,14 +7,14 @@
 .label {
   font-size: 13px;
   font-weight: 700;
-  color: #71717A;
+  color: var(--text-dim);
   letter-spacing: 0.05em;
 }
 
 .heading {
   font-size: 26px;
   font-weight: 800;
-  color: #FF3EA5;
+  color: var(--pink);
   margin: 8px 0 40px;
 }
 
@@ -29,7 +29,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #27272A;
+  background: var(--border);
 }
 
 .item {
@@ -45,7 +45,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #3F3F46;
+  background: var(--dot);
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -64,27 +64,27 @@
 .tag {
   font-size: 11px;
   font-weight: 600;
-  color: #FF3EA5;
-  background: rgba(255, 62, 165, 0.12);
+  color: var(--pink);
+  background: var(--pink-bg);
   padding: 3px 10px;
   border-radius: 999px;
 }
 
 .date {
   font-size: 12px;
-  color: #71717A;
+  color: var(--text-dim);
 }
 
 .title {
   font-size: 17px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-h);
   margin: 0;
 }
 
 .description {
   font-size: 13px;
-  color: #A1A1AA;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -95,8 +95,8 @@
 }
 
 .active .dot {
-  background: #FF3EA5;
-  box-shadow: 0 0 0 4px rgba(255, 62, 165, 0.2);
+  background: var(--pink-fill);
+  box-shadow: 0 0 0 4px var(--pink-glow);
 }
 
 /* 나머지 항목은 흑백 처리 */

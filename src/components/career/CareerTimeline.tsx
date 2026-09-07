@@ -1,17 +1,19 @@
 import { getCareer } from '../../api/career';
 import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
+import { useHorizontalWheelScroll } from '../../lib/useHorizontalWheelScroll';
 import styles from './CareerTimeline.module.css';
 
 export default function CareerTimeline() {
   const { data } = useSupabaseQuery('career', getCareer);
   const items = data ?? [];
+  const timelineRef = useHorizontalWheelScroll<HTMLDivElement>();
 
   return (
     <section className={styles.career}>
-      <span className={styles.label}>CAREER</span>
+      <span className={styles.label}>Career</span>
       <h2 className={styles.heading}>지금까지의 여정</h2>
 
-      <div className={styles.timeline}>
+      <div className={styles.timeline} ref={timelineRef}>
         {items.map(item => (
           <div key={item.id} className={styles.item}>
             <span className={styles.date}>{item.date}</span>

@@ -1,13 +1,13 @@
 .footer {
-  background: #000000;
+  background: var(--bg);
   padding: 24px 48px;
-  border-top: 1px solid #27272A;
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: center;
 }
 
 .text {
   font-size: 12px;
-  color: #52525B;
+  color: var(--text-dim);
   margin: 0;
 }

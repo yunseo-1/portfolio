@@ -10,8 +10,8 @@ export default function ActivityTimeline() {
 
   return (
     <section className={styles.section}>
-      <span className={styles.label}>ACTIVITY</span>
-      <h2 className={styles.heading}>활동</h2>
+      <span className={styles.label}>활동</span>
+      <h2 className={styles.heading}>Activity</h2>
 
       <div className={styles.timeline}>
         <div className={styles.line} />

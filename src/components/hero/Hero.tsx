@@ -21,7 +21,7 @@ export default function Hero() {
         <ul className={styles.contacts}>
           <li><a href="mailto:example@gmail.com" className={styles.chip}>email</a></li>
           <li><a href="https://github.com/yunseo-1" className={styles.chip}>GitHub</a></li>
-          <li><a href="https://kimyunseo112.tistory.com/" className={styles.chip}>velog</a></li>
+          <li><a href="https://kimyunseo112.tistory.com/" className={styles.chip}>tistory</a></li>
           <li><a href="https://www.linkedin.com/in/%EC%9C%A4%EC%84%9C-%EA%B9%80-941b5631b/" className={styles.chip}>LinkedIn</a></li>
         </ul>
       </div>
