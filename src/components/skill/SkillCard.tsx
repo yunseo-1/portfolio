@@ -1,25 +1,49 @@
+import type { IconType } from 'react-icons';
+import {
+  SiReact,
+  SiTypescript,
+  SiSpringboot,
+  SiMysql,
+  SiGit,
+  SiDocker,
+  SiNextdotjs,
+  SiVite,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPostgresql,
+  SiGithubactions,
+  SiVercel,
+} from 'react-icons/si';
+import { FaJava, FaAws } from 'react-icons/fa';
 import type { SkillItem } from '../../types/skills';
 import styles from './SkillCard.module.css';
 
-const iconModules = import.meta.glob('../../assets/skills/*.{svg,png,webp,jpg,jpeg}', {
-  eager: true,
-  import: 'default',
-}) as Record<string, string>;
-
-const iconMap: Record<string, string> = {};
-for (const path in iconModules) {
-  const fileName = path.split('/').pop()!.replace(/\.[^.]+$/, '');
-  iconMap[fileName] = iconModules[path];
-}
+const skillIcons: Record<string, IconType> = {
+  react: SiReact,
+  typescript: SiTypescript,
+  java: FaJava,
+  springboot: SiSpringboot,
+  mysql: SiMysql,
+  git: SiGit,
+  docker: SiDocker,
+  nextjs: SiNextdotjs,
+  vite: SiVite,
+  tailwind: SiTailwindcss,
+  nodejs: SiNodedotjs,
+  postgresql: SiPostgresql,
+  'github-actions': SiGithubactions,
+  vercel: SiVercel,
+  aws: FaAws,
+};
 
 export default function SkillCard({ item }: { item: SkillItem }) {
-  const iconSrc = iconMap[item.id];
+  const Icon = skillIcons[item.id];
 
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        {iconSrc ? (
-          <img src={iconSrc} alt={item.name} className={styles.icon} />
+        {Icon ? (
+          <Icon className={styles.icon} aria-hidden />
         ) : (
           <div className={styles.iconPlaceholder} />
         )}
