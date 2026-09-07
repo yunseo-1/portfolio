@@ -36,7 +36,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  /* 우상단 닫기(✕) 버튼과 겹치지 않도록 */
   padding-right: 28px;
   margin-bottom: 12px;
 }
@@ -135,4 +134,22 @@
   color: var(--text);
   line-height: 1.7;
   margin: 0;
+}
+
+@media (max-width: 560px) {
+  .overlay {
+    padding: 12px;
+  }
+
+  .modal {
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .imageRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

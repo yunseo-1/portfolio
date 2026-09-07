@@ -98,3 +98,37 @@
     right: 16px;
   }
 }
+
+@media (max-width: 640px) {
+  .navbar {
+    justify-content: space-between;
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .brand,
+  .themeToggle {
+    position: static;
+    transform: none;
+    flex-shrink: 0;
+  }
+
+  .links {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 2px 4px;
+  }
+
+  .links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navButton {
+    flex-shrink: 0;
+    padding: 8px 10px;
+  }
+}

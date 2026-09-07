@@ -1,6 +1,6 @@
 .footer {
   background: var(--bg);
-  padding: 24px 48px;
+  padding: 24px var(--section-x);
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: center;

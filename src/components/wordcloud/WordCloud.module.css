@@ -1,8 +1,10 @@
-/* WordCloud.module.css */
 .cloudWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 620px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .heading {
@@ -21,5 +23,13 @@
 }
 
 .svg {
-  max-width: 100%;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
 }

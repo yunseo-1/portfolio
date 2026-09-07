@@ -1,6 +1,6 @@
 .section {
   background: var(--bg);
-  padding: 60px 48px;
+  padding: var(--section-y) var(--section-x);
   text-align: left;
 }
 
@@ -22,4 +22,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
 }

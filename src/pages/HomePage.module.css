@@ -6,7 +6,7 @@
 
 .wordcloudSection {
   background: var(--bg);
-  padding: 60px 32px;
+  padding: var(--section-y) var(--section-x);
 }
 
 .wordcloudInner {
@@ -15,10 +15,4 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-@media (max-width: 1024px) {
-  .wordcloudSection {
-    padding: 40px 20px;
-  }
 }

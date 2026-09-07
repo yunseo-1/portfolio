@@ -1,6 +1,6 @@
 .section {
   background: var(--bg);
-  padding: 60px 48px;
+  padding: var(--section-y) var(--section-x);
   text-align: left;
 }
 
@@ -99,8 +99,13 @@
   box-shadow: 0 0 0 4px var(--pink-glow);
 }
 
-/* 나머지 항목은 흑백 처리 */
 .inactive {
   filter: grayscale(1);
   opacity: 0.4;
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
 }

@@ -1,6 +1,6 @@
 .section {
   background: var(--bg);
-  padding: 60px 48px;
+  padding: var(--section-y) var(--section-x);
 }
 
 .heading {
@@ -49,4 +49,10 @@
 
 .cardGrid::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
 }

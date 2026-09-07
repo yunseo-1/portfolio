@@ -1,7 +1,6 @@
-/* CareerTimeline.module.css */
 .career {
   background: var(--bg);
-  padding: 60px 48px;
+  padding: var(--section-y) var(--section-x);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -32,7 +31,6 @@
   padding-bottom: 4px;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-  /* 스크롤바 숨기기 (좌우 스크롤 기능은 유지) */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -70,4 +68,10 @@
   color: var(--text-dim);
   margin: 0;
   line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .label {
+    font-size: 20px;
+  }
 }

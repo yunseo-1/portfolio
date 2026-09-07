@@ -100,7 +100,13 @@ export default function WordCloud({ onKeywordClick }: WordCloudProps) {
     <div className={styles.cloudWrapper}>
       <h2 className={styles.heading}>About Me</h2>
       <p className={styles.hint}>키워드를 누르면 챗봇에 관련 질문이 추천돼요.</p>
-      <svg ref={svgRef} width={WIDTH} height={HEIGHT} className={styles.svg} />
+      <svg
+        ref={svgRef}
+        width={WIDTH}
+        height={HEIGHT}
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        className={styles.svg}
+      />
     </div>
   );
 }
