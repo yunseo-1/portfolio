@@ -1,12 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ff5cb4"/>
-      <stop offset="1" stop-color="#d81b83"/>
+    <linearGradient id="pink" x1="16" y1="0" x2="16" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff4f9c"/>
+      <stop offset="1" stop-color="#b01364"/>
+    </linearGradient>
+    <linearGradient id="topLight" x1="16" y1="0" x2="16" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="16" y1="9" x2="16" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ffe6f2"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
-  <path d="M9.3 8.8 16 16.6 22.7 8.8" fill="none" stroke="#fff" stroke-width="3.1"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M16 15.8 V23.6" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/>
+
+  <path id="sq" d="M0 9.4C0 3 3 0 9.4 0h13.2C29 0 32 3 32 9.4v13.2c0 6.4-3 9.4-9.4 9.4H9.4C3 32 0 29 0 22.6Z" fill="url(#pink)"/>
+  <use href="#sq" fill="url(#topLight)"/>
+
+  <!-- monogram YS -->
+  <text x="16.2" y="21.2" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Roboto, Arial, sans-serif"
+        font-weight="800" font-size="13.6" letter-spacing="0.1"
+        fill="url(#ink)">YS</text>
 </svg>
