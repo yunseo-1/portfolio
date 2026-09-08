@@ -2,8 +2,8 @@ import { useTheme } from '../../lib/useTheme';
 import styles from './NavBar.module.css';
 
 const navItems = [
-  { id: 'home', label: 'About' },
-  { id: 'wordcloud', label: 'About Me' },
+  { id: 'home', label: 'Home' },
+  { id: 'wordcloud', label: 'About' },
   { id: 'skills', label: 'Skill' },
   { id: 'activity', label: 'Activity' },
   { id: 'projects', label: 'Project' },

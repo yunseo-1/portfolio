@@ -7,7 +7,7 @@ export default function ClosingSection() {
     <section className={styles.section}>
       <h2 className={styles.heading}>여기까지 봐주셔서 감사합니다</h2>
       <p className={styles.description}>
-        더 나은 제품을 만드는 과정을 좋아합니다. 함께 일하고 싶으시다면 편하게 연락 주세요.
+        안정적인 서비스를 만드는 과정을 좋아하는 신입 백엔드 개발자입니다. 함께 성장해갈 기회를 주시면 감사하겠습니다.
       </p>
 
       <a href={`mailto:${EMAIL}`} className={styles.emailBtn}>
