@@ -24,7 +24,7 @@ export default function SkillsSection() {
     <section className={styles.section}>
 
       <h2 className={styles.heading}>Skill</h2>
-      <p className={styles.subtitle}>프론트엔드를 중심으로, 필요하면 백엔드와 데이터까지 직접 다룹니다.</p>
+      <p className={styles.subtitle}>백엔드를 중심으로, 필요하면 프론트엔드와 데이터까지 직접 다룹니다.</p>
 
       {groups.map(group => (
         <div key={group.category} className={styles.categoryBlock}>

@@ -1,6 +1,6 @@
 import styles from './ClosingSection.module.css';
 
-const EMAIL = 'example@gmail.com';
+const EMAIL = 'kimyunseo112@gmail.com';
 
 export default function ClosingSection() {
   return (

@@ -49,7 +49,6 @@
 
   .profileImg {
     width: 168px;
-    height: 168px;
   }
 }
 
@@ -107,7 +106,8 @@
 
 .profileImg {
   width: 220px;
-  height: 220px;
+  height: auto;
+  max-width: 100%;
   border-radius: 16px;
-  object-fit: cover;
+  display: block;
 }
