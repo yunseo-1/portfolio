@@ -1,15 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+  </style>
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff5cb4"/>
-      <stop offset="1" stop-color="#b3186e"/>
-    </linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1b1b2e" flood-opacity="0.22"/>
+    </filter>
   </defs>
-  <rect width="640" height="480" fill="url(#g)"/>
-  <circle cx="548" cy="80" r="160" fill="#ffffff" opacity="0.12"/>
-  <circle cx="96" cy="440" r="120" fill="#ffffff" opacity="0.08"/>
-  <text x="48" y="70" fill="#ffffff" opacity="0.65" font-size="20" font-weight="700" letter-spacing="3">01 / PROJECT</text>
-  <text x="46" y="296" fill="#ffffff" font-size="56" font-weight="800">Portfolio</text>
-  <text x="48" y="342" fill="#ffffff" opacity="0.9" font-size="22" font-weight="600">React · TypeScript · Supabase</text>
-  <rect x="48" y="372" width="72" height="4" rx="2" fill="#ffffff"/>
+
+  <rect width="640" height="480" fill="#eceaf0"/>
+
+  <!-- browser window -->
+  <rect x="28" y="22" width="584" height="436" rx="14" fill="#0e0e12" filter="url(#sh)"/>
+  <path d="M28 36 a14 14 0 0 1 14 -14 h556 a14 14 0 0 1 14 14 v22 h-584 z" fill="#17171d"/>
+  <circle cx="48" cy="33" r="4.5" fill="#ff5f57"/>
+  <circle cx="64" cy="33" r="4.5" fill="#febc2e"/>
+  <circle cx="80" cy="33" r="4.5" fill="#28c840"/>
+  <rect x="210" y="25" width="220" height="16" rx="8" fill="#26262e"/>
+  <text x="320" y="37" text-anchor="middle" fill="#7a7a84" font-size="10">yunseo.dev</text>
+
+  <!-- nav -->
+  <text x="52" y="86" fill="#ff3ea5" font-size="15" font-weight="800">YS.</text>
+  <text x="404" y="85" fill="#e8e8ee" font-size="11.5" font-weight="600">Work</text>
+  <text x="452" y="85" fill="#83838d" font-size="11.5" font-weight="600">About</text>
+  <text x="506" y="85" fill="#83838d" font-size="11.5" font-weight="600">Blog</text>
+  <text x="548" y="85" fill="#83838d" font-size="11.5" font-weight="600">Contact</text>
+  <rect x="404" y="92" width="26" height="2" rx="1" fill="#ff3ea5"/>
+
+  <!-- hero text -->
+  <text x="52" y="162" fill="#ff3ea5" font-size="10.5" font-weight="700" letter-spacing="2.5">FRONTEND DEVELOPER</text>
+  <text x="50" y="204" fill="#f4f4f7" font-size="33" font-weight="800">인터페이스를</text>
+  <text x="50" y="243" fill="#f4f4f7" font-size="33" font-weight="800">설계합니다</text>
+  <text x="52" y="278" fill="#9a9aa3" font-size="12">React · TypeScript 기반으로 제품을 만들고</text>
+  <text x="52" y="297" fill="#9a9aa3" font-size="12">데이터로 검증하는 프론트엔드 개발자입니다.</text>
+  <rect x="52" y="318" width="104" height="34" rx="8" fill="#ff3ea5"/>
+  <text x="104" y="340" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">프로젝트 보기</text>
+  <rect x="166" y="318" width="72" height="34" rx="8" fill="none" stroke="#3a3a44"/>
+  <text x="202" y="340" text-anchor="middle" fill="#c9c9d1" font-size="12" font-weight="600">이력서</text>
+
+  <!-- code window -->
+  <rect x="360" y="120" width="228" height="200" rx="12" fill="#16161c" stroke="#2a2a33"/>
+  <circle cx="376" cy="136" r="3" fill="#ff5f57"/>
+  <circle cx="388" cy="136" r="3" fill="#febc2e"/>
+  <circle cx="400" cy="136" r="3" fill="#28c840"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">
+    <text x="376" y="168"><tspan fill="#c792ea">const</tspan><tspan fill="#82aaff"> dev</tspan><tspan fill="#89ddff"> = </tspan><tspan fill="#cfcfd6">{</tspan></text>
+    <text x="392" y="187"><tspan fill="#f07178">name</tspan><tspan fill="#cfcfd6">: </tspan><tspan fill="#c3e88d">'김윤서'</tspan><tspan fill="#cfcfd6">,</tspan></text>
+    <text x="392" y="206"><tspan fill="#f07178">stack</tspan><tspan fill="#cfcfd6">: [</tspan><tspan fill="#c3e88d">'React'</tspan><tspan fill="#cfcfd6">, </tspan><tspan fill="#c3e88d">'TS'</tspan><tspan fill="#cfcfd6">],</tspan></text>
+    <text x="392" y="225"><tspan fill="#f07178">focus</tspan><tspan fill="#cfcfd6">: </tspan><tspan fill="#c3e88d">'UX 디테일'</tspan><tspan fill="#cfcfd6">,</tspan></text>
+    <text x="376" y="244"><tspan fill="#cfcfd6">};</tspan></text>
+    <text x="376" y="272"><tspan fill="#82aaff">dev</tspan><tspan fill="#cfcfd6">.</tspan><tspan fill="#82aaff">ship</tspan><tspan fill="#cfcfd6">()</tspan></text>
+    <text x="376" y="291" fill="#5c6370">// → shipped 🚀</text>
+  </g>
+
+  <!-- project cards -->
+  <g>
+    <rect x="52" y="374" width="168" height="68" rx="10" fill="#16161c" stroke="#26262e"/>
+    <rect x="64" y="386" width="30" height="30" rx="6" fill="#ff3ea5"/>
+    <text x="104" y="399" fill="#e8e8ee" font-size="11.5" font-weight="700">Portfolio</text>
+    <text x="104" y="416" fill="#7d7d87" font-size="9.5">React · Vite</text>
+  </g>
+  <g>
+    <rect x="236" y="374" width="168" height="68" rx="10" fill="#16161c" stroke="#26262e"/>
+    <rect x="248" y="386" width="30" height="30" rx="6" fill="#8b5cf6"/>
+    <text x="288" y="399" fill="#e8e8ee" font-size="11.5" font-weight="700">커뮤니티 앱</text>
+    <text x="288" y="416" fill="#7d7d87" font-size="9.5">Spring · MySQL</text>
+  </g>
+  <g>
+    <rect x="420" y="374" width="168" height="68" rx="10" fill="#16161c" stroke="#26262e"/>
+    <rect x="432" y="386" width="30" height="30" rx="6" fill="#f59e0b"/>
+    <text x="472" y="399" fill="#e8e8ee" font-size="11.5" font-weight="700">OCR API</text>
+    <text x="472" y="416" fill="#7d7d87" font-size="9.5">Hackathon</text>
+  </g>
 </svg>

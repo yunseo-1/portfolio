@@ -1,26 +1,6 @@
 import type { ProjectItem } from '../../types/projects';
 import styles from './ProjectLinks.module.css';
 
-function ExternalIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-      <polyline points="15 3 21 3 21 9" />
-      <line x1="10" y1="14" x2="21" y2="3" />
-    </svg>
-  );
-}
-
 function GitHubIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -29,36 +9,22 @@ function GitHubIcon() {
   );
 }
 
-/** 프로젝트 카드/모달의 데모·GitHub 링크 아이콘. 카드 클릭(모달 열기)과 겹치지 않게 이벤트 전파를 막는다. */
+
 export default function ProjectLinks({ links }: { links: ProjectItem['links'] }) {
-  if (!links.demo && !links.github) return null;
+  if (!links.github) return null;
 
   return (
     <div className={styles.links}>
-      {links.demo && (
-        <a
-          href={links.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.iconLink}
-          aria-label="데모 링크 열기"
-          onClick={e => e.stopPropagation()}
-        >
-          <ExternalIcon />
-        </a>
-      )}
-      {links.github && (
-        <a
-          href={links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.iconLink}
-          aria-label="GitHub 저장소 열기"
-          onClick={e => e.stopPropagation()}
-        >
-          <GitHubIcon />
-        </a>
-      )}
+      <a
+        href={links.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.iconLink}
+        aria-label="GitHub 저장소 열기"
+        onClick={e => e.stopPropagation()}
+      >
+        <GitHubIcon />
+      </a>
     </div>
   );
 }
