@@ -4,7 +4,10 @@ import { useSupabaseQuery } from '../../lib/useSupabaseQuery';
 import styles from './ActivityTimeline.module.css';
 
 export default function ActivityTimeline() {
+  // 지금 마우스가 올라가 있는 activity 항목의 id
+  // 이 값이 바뀌면 컴포넌트가 다시 렌더돼서 강조/흐림 클래스가 갱신됨
   const [activeId, setActiveId] = useState<string | null>(null);
+
   const { data } = useSupabaseQuery('activities', getActivities);
   const items = data ?? [];
 
@@ -21,8 +24,10 @@ export default function ActivityTimeline() {
           return (
             <div
               key={item.id}
+              // 마우스가 들어오면 이 항목 id 를 저장, 나가면 비운다
               onMouseEnter={() => setActiveId(item.id)}
               onMouseLeave={() => setActiveId(null)}
+              // 백틱으로 클래스 문자열을 조합: 항상 item + (활성일 때 active / 아닐 때 inactive)
               className={`${styles.item} ${isActive ? styles.active : styles.inactive}`}
             >
               <span className={styles.dot} /> 

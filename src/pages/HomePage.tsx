@@ -13,11 +13,13 @@ import Footer from '../components/footer';
 import styles from './HomePage.module.css';
 
 export default function HomePage() {
+
   const [selectedKeyword, setSelectedKeyword] = useState<{ keyword: string; at: number } | null>(
     null,
   );
 
   return (
+    
     <>
       <NavBar />
       <main className={styles.main}>

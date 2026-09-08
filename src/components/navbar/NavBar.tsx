@@ -1,6 +1,8 @@
-import { useTheme } from '../../lib/useTheme';
+import { useTheme } from '../../lib/theme-context';
 import styles from './NavBar.module.css';
 
+// 메뉴 목록을 데이터로 두고 아래에서 .map 으로 버튼을 찍는다.
+// id 는 HomePage 의 <section id="..."> 와 짝이 맞아야 스크롤이 동작한다.
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'wordcloud', label: 'About' },
@@ -11,6 +13,7 @@ const navItems = [
   { id: 'closing', label: 'Contact' },
 ];
 
+// 아이콘도 그냥 작은 컴포넌트. JSX 를 반환하면 <SunIcon /> 처럼 태그로 쓸 수 있다.
 function SunIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -29,8 +32,11 @@ function MoonIcon() {
 }
 
 export default function NavBar() {
+  // Context 에서 현재 테마와 토글 함수를 꺼낸다 (ThemeProvider 가 값을 제공)
   const { theme, toggleTheme } = useTheme();
 
+  // 메뉴 클릭 시 해당 id의 섹션으로 부드럽게 스크롤.
+  // ?. = 그런 id 의 요소가 없으면 그냥 아무 일도 안 하고 넘어감
   const handleClick = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -47,6 +53,8 @@ export default function NavBar() {
       </button>
 
       <div className={styles.links}>
+        {/* 배열을 .map 으로 돌려 요소 목록을 만든다. key 는 React 가 각 항목을
+            구분하는 표식이라 형제끼리 겹치지 않는 고정값(여기선 id)을 준다. */}
         {navItems.map(item => (
           <button
             key={item.id}
@@ -58,6 +66,7 @@ export default function NavBar() {
         ))}
       </div>
 
+      {/* 테마 토글. 조건부(삼항)로 지금 테마에 맞는 아이콘과 라벨을 고른다. */}
       <button
         type="button"
         className={styles.themeToggle}

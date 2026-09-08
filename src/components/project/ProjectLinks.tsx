@@ -10,6 +10,7 @@ function GitHubIcon() {
 }
 
 
+// ProjectItem['links'] = projects 타입 안의 links 부분만 뽑아온 타입
 export default function ProjectLinks({ links }: { links: ProjectItem['links'] }) {
   if (!links.github) return null;
 

@@ -13,9 +13,9 @@ export async function getActivities(): Promise<ActivityItem[]> {
   const { data, error } = await supabase
     .from('activities')
     .select('*')
-    .order('sort_order', { ascending: true });
+    .order('sort_order', { ascending: true }); 
 
-  if (error) throw error;
+  if (error) throw error; 
   return (data as ActivityRow[]).map(row => ({
     id: row.id,
     type: row.type,

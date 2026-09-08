@@ -19,11 +19,12 @@ interface ProjectRow {
   learnings: string | null;
 }
 
+// DB 한 행을 화면에서 쓰기 좋은 중첩 구조(links, retrospective)로 재조립
 function fromRow(row: ProjectRow): ProjectItem {
   return {
-    id: row.slug,
+    id: row.slug, // slug(주소용 짧은 이름)를 id 로 사용
     title: row.title,
-    image: row.thumbnail_url ?? '',
+    image: row.thumbnail_url ?? '', // 썸네일 없으면 빈 문자열 → 컴포넌트에서 자리표시자 표시
     role: row.role,
     memberCount: row.member_count,
     period: row.period,

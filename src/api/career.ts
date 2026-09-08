@@ -1,6 +1,7 @@
 import { supabase } from '../lib/supabase';
 import type { CareerItem } from '../types/career';
 
+// 패턴 설명은 api/activities.ts 참고.
 interface CareerRow {
   id: string;
   date: string;
