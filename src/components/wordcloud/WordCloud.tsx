@@ -41,6 +41,18 @@ const wordData: WordItem[] = [
 const WIDTH = 620;
 const HEIGHT = 360;
 
+// 키워드 둥실둥실
+const FLOAT_PRESETS = [
+  { delay: '0s', dur: '5.4s', rot: '2deg' },
+  { delay: '-1.8s', dur: '6.2s', rot: '-3deg' },
+  { delay: '-3.2s', dur: '4.8s', rot: '1.5deg' },
+  { delay: '-0.7s', dur: '5.8s', rot: '-2deg' },
+  { delay: '-2.4s', dur: '6.6s', rot: '2.5deg' },
+  { delay: '-4.1s', dur: '5.1s', rot: '-1.5deg' },
+  { delay: '-1.2s', dur: '6.0s', rot: '3deg' },
+  { delay: '-2.9s', dur: '5.6s', rot: '-2.5deg' },
+];
+
 export default function WordCloud({ onKeywordClick }: WordCloudProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -69,27 +81,52 @@ export default function WordCloud({ onKeywordClick }: WordCloudProps) {
       const svg = d3.select(svgRef.current);
       svg.selectAll('*').remove();
 
-      const nodes = svg
+      const root = svg
         .append('g')
-        .attr('transform', `translate(${WIDTH / 2}, ${HEIGHT / 2})`)
-        .selectAll('text')
+        .attr('transform', `translate(${WIDTH / 2}, ${HEIGHT / 2})`);
+
+      
+      const wrap = root
+        .selectAll('g.word')
         .data(words)
         .enter()
+        .append('g')
+        .attr('class', 'word')
+        .attr(
+          'transform',
+          (d: any) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`,
+        );
+
+      
+      const nodes = wrap
         .append('text')
+        .attr('class', styles.floatWord)
         .style('font-size', (d: any) => `${d.size}px`)
         .style('font-family', 'sans-serif')
         .style('font-weight', 700)
         .style('fill', (d: any) => colorMap[d.text] ?? 'var(--text-muted)')
         .style('cursor', 'pointer')
+        .style(
+          '--float-delay',
+          (_d: any, i: number) => FLOAT_PRESETS[i % FLOAT_PRESETS.length].delay,
+        )
+        .style(
+          '--float-duration',
+          (_d: any, i: number) => FLOAT_PRESETS[i % FLOAT_PRESETS.length].dur,
+        )
+        .style(
+          '--float-rot',
+          (_d: any, i: number) => FLOAT_PRESETS[i % FLOAT_PRESETS.length].rot,
+        )
         .attr('text-anchor', 'middle')
-        .attr('transform', (d: any) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+        .attr('dy', '0.35em')
         .text((d: any) => d.text)
         .on('click', (_event: unknown, d: any) => onKeywordClickRef.current?.(d.text))
         .on('mouseover', function (this: SVGTextElement) {
-          d3.select(this).transition().duration(120).style('opacity', 0.6);
+          d3.select(this).style('animation-play-state', 'paused').style('opacity', 0.6);
         })
         .on('mouseout', function (this: SVGTextElement) {
-          d3.select(this).transition().duration(120).style('opacity', 1);
+          d3.select(this).style('animation-play-state', 'running').style('opacity', 1);
         });
 
       nodes.append('title').text((d: any) => `"${d.text}" 관련 질문 보기`);

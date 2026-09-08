@@ -1,11 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-/**
- * 세로 휠 스크롤을 가로 스크롤로 변환한다. (Shift 없이 좌우 스크롤)
- * - 가로 오버플로가 있을 때만 개입한다.
- * - 트랙패드 가로 제스처는 브라우저 기본 동작에 맡긴다.
- * - 스크롤이 끝(맨 왼쪽/오른쪽)에 닿으면 페이지 세로 스크롤로 넘긴다.
- */
 export function useHorizontalWheelScroll<T extends HTMLElement>() {
   const ref = useRef<T>(null);
 

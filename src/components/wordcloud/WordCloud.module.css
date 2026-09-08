@@ -28,6 +28,34 @@
   height: auto;
 }
 
+/* 각 키워드가 제자리에서 둥실둥실 떠다니는 모션 */
+.floatWord {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: floatMovement var(--float-duration, 5.5s) ease-in-out infinite alternate;
+  animation-delay: var(--float-delay, 0s);
+  transition: opacity 0.15s ease;
+  will-change: transform;
+}
+
+@keyframes floatMovement {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(var(--float-rot, 2deg));
+  }
+  100% {
+    transform: translateY(5px) rotate(calc(var(--float-rot, 2deg) * -1));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatWord {
+    animation: none;
+  }
+}
+
 @media (max-width: 480px) {
   .heading {
     font-size: 22px;
